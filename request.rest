@@ -1,0 +1,32 @@
+POST http://localhost:3000/api/cards
+Content-Type: application/json
+
+{
+  "agency": 1234,
+  "account": 9876,
+  "cpf": 8181818,
+  "dataOfBirth": "12/12/2012",
+  "fullName": "icaro de oliveira macedo",
+  "nameForCard": "icaro o macedo",
+  "flag": "Visa",
+  "type": "Gold",
+  "expirationDate": "5",
+  "password": 162534,
+  "state": "requested"
+}
+
+
+###
+GET http://localhost:3000/api/cards
+
+###
+GET http://localhost:3000/api/cards/3827839931565689
+
+###
+PUT http://localhost:3000/api/cards/3827839931565689
+Content-Type: application/json
+
+{
+  "state": "locked",
+  "motive": "eu bloquei pq meu avo tava estorando tudo com as meninas :)"
+}
