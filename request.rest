@@ -2,17 +2,17 @@ POST http://localhost:3000/api/cards
 Content-Type: application/json
 
 {
-  "agency": 1234,
-  "account": 9876,
-  "cpf": 8181818,
-  "dataOfBirth": "12/12/2012",
+  "agency": 5555,
+  "account": 1345,
+  "cpf": "01934859230",
+  "dateOfBirth":29052004,
   "fullName": "icaro de oliveira macedo",
   "nameForCard": "icaro o macedo",
   "flag": "Visa",
   "type": "Gold",
-  "expirationDate": "5",
-  "password": 162534,
-  "state": "requested"
+  "expirationDate": "15",
+  "password": 592861,
+  "confirmPassword": 592861
 }
 
 
@@ -20,13 +20,23 @@ Content-Type: application/json
 GET http://localhost:3000/api/cards
 
 ###
-GET http://localhost:3000/api/cards/3827839931565689
-
-###
-PUT http://localhost:3000/api/cards/3827839931565689
+GET http://localhost:3000/api/cards/search
 Content-Type: application/json
 
 {
-  "state": "locked",
-  "motive": "eu bloquei pq meu avo tava estorando tudo com as meninas :)"
+  "number": 3034813004584186
+}
+
+###
+PUT http://localhost:3000/api/cards/state
+Content-Type: application/json
+
+{
+  "number": 3034813004584186,
+  "agency": 5555,
+  "account": 1345,
+  "password": 592861,
+  "confirmPassword": 592861,
+  "state": "canceled",
+  "motive": ""
 }

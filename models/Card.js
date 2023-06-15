@@ -12,11 +12,11 @@ const cardSchema = new Schema({
     required: true
   },
   cpf: {
-    type: Number,
+    type: String,
     required: true
   },
-  dataOfBirth: {
-    type: String,
+  dateOfBirth: {
+    type: Number,
     required: true
   },
   fullName: {
@@ -43,11 +43,14 @@ const cardSchema = new Schema({
     type: Number,
     required: true
   },
-  state: {
-    type: String,
+  confirmPassword: {
+    type: Number,
     required: true
   },
-  cardNumber: {
+  state: {
+    type: String
+  },
+  number: {
     type: Number,
   },
   cvv: {

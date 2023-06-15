@@ -12,11 +12,11 @@ router
 .get((req,res) => cardController.getAll(req, res))
 
 router
-.route("/cards/:cardNumber")
-.get((req,res) => cardController.get(req,res))
+.route("/cards/search")
+.get((req, res) => cardController.get(req, res));
 
 router
-.route("/cards/:cardNumber")
+.route("/cards/state")
 .put((req, res) => cardController.changeState(req,res))
 
 
