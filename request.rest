@@ -24,7 +24,7 @@ GET http://localhost:3000/api/cards/search
 Content-Type: application/json
 
 {
-  "number": 3034813004584186
+  "number": 6490928237793727
 }
 
 ###
@@ -32,11 +32,13 @@ PUT http://localhost:3000/api/cards/state
 Content-Type: application/json
 
 {
-  "number": 3034813004584186,
+  "number": 6490928237793727,
   "agency": 5555,
   "account": 1345,
   "password": 592861,
   "confirmPassword": 592861,
-  "state": "canceled",
+  "state": "requested",
   "motive": ""
 }
+
+// requested| delivered | activated | locked | canceled

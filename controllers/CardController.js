@@ -82,15 +82,20 @@ const cardController = {
         }
     },changeState: async (req,res) =>{
         try {
+            const number = req.body.number
+            const cardInDatabase = await CardModel.findOne({ number })
+
+            if (!cardInDatabase) {
+                res.status(404).json({msg: "Card not found"})
+                return
+            }
+
             const password = req.body.password
             const confirmPassword = req.body.confirmPassword
             const state = req.body.state
             const motive = req.body.motive
-            const number = req.body.number
             const agency = req.body.agency
             const account = req.body.account
-
-            const cardInDatabase = await CardModel.findOne({ number })
             
             const validationMesseger = validateInDatabase(password, confirmPassword,number,agency,account, cardInDatabase)
 
@@ -103,18 +108,18 @@ const cardController = {
                 res.status(406).json({msg: `The card cannot be ${state} if it is ${cardInDatabase.state}.`})
                 return
             }
-            
+
             const card = {
                 state: state,
                 motive: motive
             }
-
-            const updateCard = await CardModel.findOneAndUpdate({number}, card)
-            
             if (!card) {
                 res.status(404).json({msg: "Card not found"})
                 return
             }
+            const updateCard = await CardModel.findOneAndUpdate({number}, card)
+            
+            
 
             res.status(200).json({card, msg: `Card has been ${card.state}`})
         } catch (error) {
