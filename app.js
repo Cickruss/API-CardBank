@@ -3,6 +3,8 @@ const cors = require("cors")
 const app = express()
 const bodyParser = require('body-parser');
 
+const PORT = 3000
+const HOST = '0.0.0.0'
 app.use(cors())
 
 app.use(express.json())
@@ -14,6 +16,4 @@ conn()
 const routes = require("./routes/router")
 app.use("/api", routes)
 
-app.listen(3000, function() {
-    console.log("Server On!")
-})
+app.listen(PORT, HOST)
